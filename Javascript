@@ -1,0 +1,105 @@
+document.addEventListener('mouseout', function(event) {
+  // se o mouse saiu da página
+  if (event.clientY < 0) {
+    // cria o elemento que contém os vídeos
+    var videosDiv = document.createElement('div');
+    videosDiv.style.position = 'fixed';
+    videosDiv.style.top = '50%';
+    videosDiv.style.left = '50%';
+    videosDiv.style.transform = 'translate(-50%, -50%)';
+    videosDiv.style.zIndex = '9999';
+    videosDiv.style.display = 'flex';
+    videosDiv.style.flexDirection = 'column';
+    videosDiv.style.alignItems = 'center';
+    videosDiv.style.padding = '20px';
+    videosDiv.style.borderRadius = '10px';
+    videosDiv.style.backgroundColor = '#fff';
+    videosDiv.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.3)';
+
+    // adiciona o botão de fechar
+    var closeButton = document.createElement('button');
+    closeButton.innerHTML = 'X';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    closeButton.style.backgroundColor = 'transparent';
+    closeButton.style.border = 'none';
+    closeButton.style.fontSize = '24px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.addEventListener('click', function() {
+      document.body.removeChild(darkOverlay);
+      document.body.removeChild(videosDiv);
+      document.body.style.backgroundColor = 'initial';
+    });
+
+    // adiciona a mensagem acima dos vídeos
+    var message = document.createElement('p');
+    message.innerHTML = 'Espera! Caso sair você estará queimando dinheiro. Veja do que estou falando.';
+    message.style.marginTop = '0';
+    message.style.marginBottom = '20px';
+    message.style.fontSize = '18px';
+    message.style.fontWeight = 'bold';
+    message.style.textAlign = 'center';
+
+    // adiciona o botão que direciona para a seção "Oferta"
+    var offerButton = document.createElement('a');
+    offerButton.innerHTML = 'Ir para Oferta';
+    offerButton.href = 'https://raffezi.pay.yampi.com.br/r/POUAOVTLGR';
+    offerButton.style.display = 'block';
+    offerButton.style.width = '100%';
+    offerButton.style.padding = '10px';
+    offerButton.style.borderRadius = '5px';
+    offerButton.style.backgroundColor = '#ff8c00';
+    offerButton.style.color = '#fff';
+    offerButton.style.textAlign = 'center';
+    offerButton.style.textDecoration = 'none';
+    offerButton.style.fontSize = '16px';
+    offerButton.style.fontWeight = 'bold';
+    offerButton.style.cursor = 'pointer';
+
+    // adiciona os vídeos ao elemento criado
+    for (var i = 0; i < 3; i++) {
+      var video = document.createElement('video');
+      video.src = 'caminho/do/video-' + i + '.mp4';
+      video.autoplay = true;
+      video.controls = true;
+      video.style.margin = '10px';
+      videosDiv.appendChild(video);
+	  // define que a div deve ter display flex e os vídeos devem ficar em linha
+videosDiv.style.display = 'flex';
+videosDiv.style.flexDirection = 'row';
+videosDiv.style.justifyContent = 'center'; // centraliza os vídeos horizontalmente
+videosDiv.style.alignItems = 'center'; // centraliza os vídeos verticalmente
+
+    }
+
+    // adiciona o plano de fundo preto diretamente no body
+    var darkOverlay = document.createElement('div');
+    darkOverlay.style.position = 'fixed';
+    darkOverlay.style.top = '0';
+    darkOverlay.style.left = '0';
+    darkOverlay.style.width = '100%';
+    darkOverlay.style.height = '100%';
+    darkOverlay.style.backgroundColor
+	
+	// adiciona o botão de direcionamento para a seção "Oferta"
+var ofertaButton = document.createElement('a');
+ofertaButton.innerHTML = 'Ver Oferta';
+ofertaButton.href = 'https://raffezi.pay.yampi.com.br/r/POUAOVTLGR';
+ofertaButton.target = '_blank';
+ofertaButton.style.marginTop = '20px';
+ofertaButton.style.padding = '10px 20px';
+ofertaButton.style.borderRadius = '5px';
+ofertaButton.style.backgroundColor = '#5cb85c';
+ofertaButton.style.color = '#fff';
+ofertaButton.style.textDecoration = 'none';
+ofertaButton.style.fontSize = '16px';
+ofertaButton.style.cursor = 'pointer';
+videosDiv.appendChild(ofertaButton);
+
+// adiciona os elementos criados ao corpo da página
+videosDiv.appendChild(closeButton);
+document.body.appendChild(darkOverlay);
+document.body.appendChild(videosDiv);
+}
+});
